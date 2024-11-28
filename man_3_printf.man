@@ -1,4 +1,4 @@
-.TH _printf 3 function man page 25 to 29 november 2024
+.TH _printf 3 man page "25 to 29 november 2024"
 
 
 .SH NAME
@@ -37,7 +37,7 @@ write output to stdout, the standard output stream. On error (for example, if th
 .SS
 .BI Print integer (Decimal base) and String
 #include "main.h"
-_printf("In that simple _printf we gonna %s %d ", "print", 8);
+_printf("In that simple _printf we gonna %s %d words", "print", 8);
 .nf
 Output : "In that simple _printf we gonna print 8 words"
 
