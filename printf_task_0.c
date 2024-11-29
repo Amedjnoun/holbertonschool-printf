@@ -11,6 +11,7 @@
 int print_char(va_list args)
 {
 	char c = va_arg(args, int);
+
 	return (write(1, &c, 1));
 }
 
@@ -42,6 +43,7 @@ int print_string(va_list args)
 int print_integer(va_list args)
 {
 	int n = va_arg(args, int);
+
 	return (print_integer_recursive(n));
 }
 
