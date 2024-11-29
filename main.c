@@ -1,11 +1,11 @@
-#include <limits.h> /* Constantes limites */
-#include <stdio.h>  /* Bibliothèque standard d'entrées/sorties */
-#include "main.h"   /* Déclarations personnalisées */
+#include <limits.h> /* Limit constants */
+#include <stdio.h>  /* Standard input/output library */
+#include "main.h"   /* Custom declarations */
 
 /**
- * main - Point d'entrée du programme
+ * main - Entry point of the program
  *
- * Return: Toujours 0
+ * Return: Always 0
  */
 int main(void)
 {
@@ -13,11 +13,11 @@ int main(void)
 	unsigned int ui = (unsigned int)INT_MAX + 1024;
 	void *addr = (void *)0x7ffe637541f0;
 
-	/* Tests avec _printf et printf */
+	/* Tests with _printf and printf */
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 
-	/* Tests de formats différents */
+	/* Tests with different formats */
 	_printf("Length:[%d, %i]\n", len, len);
 	printf("Length:[%d, %i]\n", len2, len2);
 	_printf("Negative:[%d]\n", -762534);
