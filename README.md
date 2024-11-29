@@ -86,7 +86,7 @@ Hexadecimal:[ff, FF]
 ```
 ## Flowchart
 
-![Flowchart](https://github.com/Amedjnoun/holbertonschool-printf/blob/Dev/Flowchart.png?raw=true)
+![Flowchart](https://github.com/Amedjnoun/holbertonschool-printf/blob/Dev/Flowchart.png)
 ## Authors
 
 Nail Slimani
