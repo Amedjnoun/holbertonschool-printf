@@ -66,6 +66,8 @@ int handle_format(const char *format, va_list args)
 		count += write(1, "%", 1);
 	else if (*format == 'd' || *format == 'i')
 		count += print_integer(args);
+	else if (*format == 'u')
+		count += print_unsigned_recursive(va_arg(args, unsigned int));
 	else
 		count += write(1, format, 1);
 
