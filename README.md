@@ -84,7 +84,9 @@ Integer:[42]
 Unsigned:[1024]
 Hexadecimal:[ff, FF]
 ```
+## Flowchart
 
+![Flowchart](images/my-image.png)
 ## Authors
 
 Nail Slimani
