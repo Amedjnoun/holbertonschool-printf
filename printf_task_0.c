@@ -26,8 +26,13 @@ int print_string(va_list args)
 	char *str = va_arg(args, char *);
 	int count = 0;
 
+
 	if (*str == 0)
-		str = "(null)";
+		count += write(1, "(null)", 6);
+	if (*str == NULL)
+		count += write(1, "(null)", 6);
+	if (*str == NULL)
+		count += write(1, "(null)", 6);
 
 	while (*str)
 		count += write(1, str++, 1);
@@ -103,4 +108,3 @@ int _printf(const char *format, ...)
 
 	return (count);
 }
-
