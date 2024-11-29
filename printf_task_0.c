@@ -26,20 +26,17 @@ int print_string(va_list args)
 	char *str = va_arg(args, char *);
 	int count = 0;
 
-	/* Handle NULL pointer */
 	if (str == NULL)
 	{
 		count += write(1, "(null)", 6);
 		return (count);
 	}
 
-	/* Handle empty string */
 	if (*str == '\0')
 	{
 		return (count);
 	}
 
-	/* Print string character by character */
 	while (*str)
 	{
 		count += write(1, str, 1);
