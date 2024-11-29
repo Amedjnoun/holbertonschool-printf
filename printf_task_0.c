@@ -48,6 +48,7 @@ int print_integer(va_list args)
 {
 	/* Récupération de l'entier depuis la liste des arguments */
 	int n = va_arg(args, int);
+
 	return (print_integer_recursive(n));
 }
 
