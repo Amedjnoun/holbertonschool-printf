@@ -26,15 +26,25 @@ int print_string(va_list args)
 	char *str = va_arg(args, char *);
 	int count = 0;
 
-	if (str == NULL)  /* Check for NULL string */
+	if (*str == 0)
 		str = "(null)";
 
 	while (*str)
-	{
 		count += write(1, str++, 1);
-	}
 
 	return (count);
+}
+
+/**
+ * print_integer - Handles the display of an integer.
+ * @args: List of arguments.
+ * Return: Number of characters printed.
+ */
+int print_integer(va_list args)
+{
+	int n = va_arg(args, int);
+
+	return (print_integer_recursive(n));
 }
 
 /**
@@ -54,6 +64,10 @@ int handle_format(const char *format, va_list args)
 		count += print_string(args);
 	else if (*format == '%')
 		count += write(1, "%", 1);
+	else if (*format == 'd' || *format == 'i')
+		count += print_integer(args);
+	else if (*format == 'u')
+		count += print_unsigned_recursive(va_arg(args, unsigned int));
 	else
 		count += write(1, format, 1);
 
@@ -89,3 +103,4 @@ int _printf(const char *format, ...)
 
 	return (count);
 }
+
