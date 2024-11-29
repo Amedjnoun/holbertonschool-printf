@@ -1,30 +1,92 @@
-# holbertonschool-printf
+# _printf : A Clone of printf
 
-## Description
-
-Le projet **holbertonschool-printf** consiste à implémenter une version simplifiée de la fonction `printf` de la bibliothèque standard C. L'objectif est de gérer plusieurs spécificateurs de format et de reproduire le comportement de cette fonction dans des conditions spécifiques.
-
-### Objectifs du projet :
-1. Implémenter la fonction `_printf` pour gérer des spécificateurs de format de base.
-2. Manipuler une liste d'arguments variable en utilisant `stdarg.h`.
-3. Créer une page de manuel pour la fonction `_printf`.
-
-## Fonctionnalités
-
-Le projet est divisé en plusieurs étapes, chaque étape ajoutant une fonctionnalité supplémentaire. Voici un résumé des tâches à réaliser :
+This project aims to recreate the standard `printf` function in C. Developed in collaboration with **Nail Slimani**, **Ali Mejnoun**, and **Stan Queuniez**, this project demonstrates our deep understanding of advanced C programming concepts.
 
 ---
 
-## Tâche 0 : _printf de base
+## Description
 
-### Description
+The `_printf` function produces formatted output to the standard output, following the specifiers defined in a format string. Like the standard `printf` function, `_printf` supports several format types such as:
+- `%c`: Prints a character.
+- `%s`: Prints a string.
+- `%d` and `%i`: Print an integer in decimal base.
+- `%u`: Prints an unsigned integer.
+- `%o`: Prints an integer in octal base.
+- `%x` and `%X`: Print an integer in hexadecimal base (lowercase and uppercase respectively).
+- `%%`: Prints a `%` character.
 
-Implémentation d'une fonction `_printf` qui produit une sortie formatée selon un format donné. Les spécificateurs pris en charge sont :
-- `%c` : Affichage d'un caractère.
-- `%s` : Affichage d'une chaîne de caractères.
-- `%%` : Affichage du symbole pourcentage `%`.
+### Key Features
 
-#### Prototype :
+1. **Error Handling**: If the format is `NULL`, the function returns `-1`.
+2. **Function Return**: `_printf` returns the total number of characters printed, excluding the null character.
+3. **Extended Specifiers**: In addition to the classic types (`%c`, `%s`, `%d`, etc.), `_printf` supports memory addresses via `%p`.
 
+---
+
+## Code Functionality
+
+The code is divided into several modules, each with a specific role.
+
+### Modules and Responsibilities
+
+- **Stan Queuniez**
+	- `print_char`: Prints a character passed as an argument.
+	- `print_string`: Prints a string, or "(null)" if the string is empty.
+	- `handle_format`: Manages the different format specifiers and calls the associated functions.
+	- `_printf`: Main entry point to parse the format string and direct execution to the appropriate functions.
+- **Ali Mejnoun**
+	- `print_integer_recursive`: Prints integers recursively to handle negative and multiple-digit cases.
+	- Manages formats `%d`, `%i`, `%u`, `%o`, `%x`, `%X` for decimal, integer, unsigned, octal, and hexadecimal integers.
+- **Nail Slimani**
+	- User Manual (`man_3_printf.man`): Detailed documentation on the use of `_printf`, with practical examples and error case explanations.
+
+---
+
+## Included Files
+
+Here is the list of essential files for the project:
+- **`main.c`**: Main file containing tests demonstrating the capabilities of `_printf`.
+- **`main.h`**: Header file containing function prototypes.
+- **`printf_task_0.c`**: Implementation of the `_printf` function and associated modules.
+- **`print_integer_recursive.c`**: Integer handling (Ali).
+- **`print_unsigned_recursive.c`**: Unsigned integer handling (Ali).
+- **`man_3_printf.man`**: Manual describing the functionality of `_printf` (Nail).
+- **`author`**: Author contact information (Nail).
+
+---
+
+## Usage Example
+
+Here is an example of using `_printf`:
 ```c
-int _printf(const char *format, ...);
+#include "main.h"
+int main(void)
+{
+	int len;
+	char *str = "Holberton";
+	len = _printf("Character:[%c]\n", 'H');
+	_printf("String:[%s]\n", str);
+	_printf("Percent:[%%]\n");
+	_printf("Integer:[%d]\n", 42);
+	_printf("Unsigned:[%u]\n", 1024);
+	_printf("Hexadecimal:[%x, %X]\n", 255, 255);
+	return (0);
+}
+```
+
+## Expected Results
+
+```
+Character:[H]
+String:[Holberton]
+Percent:[%]
+Integer:[42]
+Unsigned:[1024]
+Hexadecimal:[ff, FF]
+```
+
+## Authors
+
+Nail Slimani
+Ali Mejnoun
+Stan Queuniez
