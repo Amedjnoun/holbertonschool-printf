@@ -6,5 +6,6 @@
 
 /* Prototype de la fonction _printf */
 int _printf(const char *format, ...);
+int print_integer_recursive(int n);
 
 #endif /* MAIN_H */
